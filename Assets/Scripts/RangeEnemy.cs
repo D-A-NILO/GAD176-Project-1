@@ -7,7 +7,7 @@ public class RangeEnemy : EnemyScript
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private Transform shootPoint;
     [SerializeField] private float shootRange = 10f;
-    [SerializeField] private float shootCooldown = 2f;
+    [SerializeField] private float shootCooldown = 0.5f;
     private float lastShotTime;
 
     protected override void Update()
