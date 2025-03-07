@@ -11,7 +11,7 @@ public class WeaponScript : MonoBehaviour
     [SerializeField] protected Transform firePoint;
     [SerializeField] protected float bulletSpeed = 20f;
 
-    private float lastFireTime;
+    protected float lastFireTime;
 
     void Start()
     {
