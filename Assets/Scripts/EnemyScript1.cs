@@ -38,7 +38,7 @@ public class EnemyScript : MonoBehaviour
             transform.forward = direction.normalized; // Face the player
         }
     }
- 
+
     public virtual void TakeDamage(int amount)
     {
         health -= amount;
