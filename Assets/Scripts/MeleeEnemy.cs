@@ -24,6 +24,10 @@ public class MeleeEnemy : EnemyScript
         {
             Debug.Log("Melee Enemy Attacks!");
             // If player has a health script, call: player.TakeDamage(damage);
+            if (playerManager != null)
+            {
+                playerManager.TakeDamage(damage);
+            }
             lastAttackTime = Time.time;
         }
     }

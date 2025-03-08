@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    [Header("Movement Settings")]
+    
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float jumpForce = 7f;
     [SerializeField] private float gravity = 9.81f;
 
-    [Header("Mouse Look Settings")]
+    
     [SerializeField] private float mouseSensitivity = 2f;
     [SerializeField] private Camera playerCamera; // Manually assign this in Unity Inspector
+
+    [SerializeField] private int health = 100;
 
     private Rigidbody rb;
     private bool isGrounded;
@@ -85,5 +87,21 @@ public class PlayerManager : MonoBehaviour
     private void OnCollisionExit(Collision collision)
     {
         isGrounded = false;
+    }
+
+    public void TakeDamage(int amount)
+    {
+        health -= amount;
+        Debug.Log("Player Health: " + health);
+        if (health <= 0)
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        Debug.Log("Player Died!");
+        // Implement respawn or game over logic
     }
 }

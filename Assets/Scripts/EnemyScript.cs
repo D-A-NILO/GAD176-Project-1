@@ -9,10 +9,12 @@ public class EnemyScript : MonoBehaviour
     [SerializeField] protected int damage = 10;
 
     protected Transform player;
+    protected PlayerManager playerManager;
 
     protected virtual void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        playerManager = player.GetComponent<PlayerManager>();
     }
 
     protected virtual void Update()
@@ -36,7 +38,7 @@ public class EnemyScript : MonoBehaviour
             transform.forward = direction.normalized; // Face the player
         }
     }
-
+ 
     public virtual void TakeDamage(int amount)
     {
         health -= amount;
@@ -49,5 +51,10 @@ public class EnemyScript : MonoBehaviour
     protected virtual void Die()
     {
         Destroy(gameObject); // Destroy the enemy
+    }
+
+    public int GetHealth()
+    {
+        return health;
     }
 }

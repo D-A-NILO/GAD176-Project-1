@@ -26,9 +26,15 @@ public class WeaponScript : MonoBehaviour
             currentAmmo--;
 
             GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-            bullet.GetComponent<Rigidbody>().velocity = firePoint.forward * bulletSpeed;
+            PlayerProjectileScript playerProjectile = bullet.GetComponent<PlayerProjectileScript>();
 
             Debug.Log("Gun fired! Ammo left: " + currentAmmo);
+
+            if (playerProjectile != null)
+            {
+                playerProjectile.SetDamage(10);
+            }
+            bullet.GetComponent<Rigidbody>().velocity = firePoint.forward * bulletSpeed;
         }
         else if (currentAmmo <= 0)
         {
